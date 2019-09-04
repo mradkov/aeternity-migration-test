@@ -27,8 +27,6 @@ const migrationSource = utils.readFileRelative('./contracts/Migration.aes', 'utf
 
 const balances = require('../deployment/balances')
 
-console.log(balances);
-
 const config = {
     host: 'http://localhost:3001/',
     internalHost: 'http://localhost:3001/internal/',
@@ -71,7 +69,7 @@ describe('Migration Contract', () => {
 
     it('Deploying Migration', async () => {
         migrationContract = await ownerClient.getContractInstance(migrationSource);
-        const init = await migrationContract.methods.init(balances);
+        const init = await migrationContract.methods.init(balances(500));
         assert.equal(init.result.returnType, 'ok');
     });
 })

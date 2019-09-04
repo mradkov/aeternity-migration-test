@@ -1,14 +1,15 @@
 var Wallet = require('ethereumjs-wallet');
-var balances = [];
 
-for(var i = 0; i <= 5000; i++){
-    const wallet = Wallet.generate();
-
-    var balance = [wallet.getAddressString(), {"value": Promise.resolve(0), "claimed": false}];
-    balances.push(balance);
-}
-
-module.exports = balances;
+module.exports = (number) => {
+        var balances = [];
+        for(var i = 0; i <= number; i++){
+            const wallet = Wallet.generate();
+        
+            var balance = [wallet.getAddressString(), {"value": Promise.resolve(0), "claimed": false}];
+            balances.push(balance);
+        }
+        return balances;
+    }
 
 // [
 //     ["0x005e288d713a5fb3d7c9cf1b43810a98688c7223", {"value": Promise.resolve(0), "claimed": false}],
