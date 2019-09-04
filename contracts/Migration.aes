@@ -1,0 +1,19 @@
+contract Migration =
+  record state = { balances: map(string, balance) }
+  record balance = { value: option(int), claimed: bool }
+  
+  entrypoint init(balances': map(string, balance)) = { balances = balances' }
+  // entrypoint init() = { balances = { } }
+
+  entrypoint get_state() : state = state
+  
+  stateful entrypoint add(balances': map(string, balance)) : bool =
+    put(state{ balances = balances' })
+    true
+  
+  stateful entrypoint claim(msg: string) : bool =
+    switch (state.balances[msg].value)
+      None => false
+      Some(x) =>
+        put(state{ balances[msg].claimed = true })
+        true

@@ -1,0 +1,18 @@
+{
+  "name": "aeternity-migration-test",
+  "version": "1.0.0",
+  "description": "This is the default package.json generated for your project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Milen Radkov <milenradkov@me.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@aeternity/aepp-sdk": "4.5.0",
+    "aeproject-lib": "1.0.0",
+    "blake2b": "^2.1.3",
+    "ethereumjs-wallet": "^0.6.3",
+    "yarn": "1.17.3"
+  }
+}
